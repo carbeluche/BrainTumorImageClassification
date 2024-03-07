@@ -47,5 +47,8 @@ plt.show()
 
 correctly_identified_tumor_images = conf_matrix[1, 1]
 misclassified_tumor_images = conf_matrix[0, 1] + conf_matrix[1, 0]
-print(f"The model correctly identified {correctly_identified_tumor_images} MRI images as brain tumors while misclassifying {misclassified_tumor_images} MRI images.")
-print(f"The overall accuracy of the model on the test set is calculated at {accuracy * 100:.2f}%, highlighting its reliable classification capabilities.")
+print(f"The model correctly identified {correctly_identified_tumor_images}"
+      f" MRI images as brain tumors while misclassifying {misclassified_tumor_images} MRI images.")
+print(f"The overall accuracy of the model on the test set is calculated at"
+      f" {accuracy * 100:.2f}%, highlighting its reliable classification capabilities.")
+

@@ -1,16 +1,13 @@
-import cv2
 import os
-import tensorflow as tf
-from sklearn.tree._criterion import Entropy
-from tensorflow import keras
-from PIL import Image
+import cv2
 import numpy as np
-from sklearn.model_selection import train_test_split
-from keras.utils import normalize
-from keras.models import Sequential
-from keras.layers import Conv2D, MaxPooling2D
+from PIL import Image
 from keras.layers import Activation, Flatten, Dense, Dropout
+from keras.layers import Conv2D, MaxPooling2D
+from keras.models import Sequential
+from keras.utils import normalize
 from keras.utils import to_categorical
+from sklearn.model_selection import train_test_split
 
 image_directory = "datasets/"
 
@@ -47,7 +44,8 @@ for i, image_name in enumerate(yes_tumor_images):
 dataset = np.array(dataset)
 label = np.array(label)
 
-x_train, x_test, y_train, y_test = train_test_split(dataset, label, test_size=0.2, random_state=0)
+x_train, x_test, y_train, y_test = train_test_split(dataset, label,
+                                                    test_size=0.2, random_state=0)
 
 # print(x_train.shape)  # (2400, 64, 64, 3) = (number, width, height, number_channels)
 # print(y_train.shape)
@@ -80,6 +78,7 @@ model.add(Flatten())
 model.add(Dense(64))
 model.add(Activation('relu'))
 model.add(Dropout(0.5))
+
 model.add(Dense(2))
 model.add(Activation('softmax'))
 
